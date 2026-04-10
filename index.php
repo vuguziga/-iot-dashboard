@@ -4,7 +4,7 @@ if(!isset($_SESSION['user'])){
     header("Location: login.php");
     exit();
 }
-$conn = new mysqli("localhost", "root", "", "livestock");
+$conn =mysqli_connect("localhost", "root", "", "livestock");
 $totalAnimals = $conn->query("SELECT COUNT(*) as total FROM Animals")->fetch_assoc()['total'];
 $totalHealth = $conn->query("SELECT COUNT(*) as total FROM healthrecord")->fetch_assoc()['total'];
 ?>
